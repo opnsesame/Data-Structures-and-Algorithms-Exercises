@@ -3,10 +3,10 @@
 def sigmaSquareN(n):
     list =[]
     sum = 0
-    for i in range(n):
+    for i in range(1,n):
         sum += i**2
-        print ('i=%d,Sigma of  squrae i=%d'%(i,sum))
         if sum < n:
+           print ('Sigma of  squrae %d=%d'%(i,sum))
            list.append(sum)
         else:
             break
