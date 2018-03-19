@@ -10,3 +10,17 @@ def oddProduct(list):
                 print("list[%d]*list[%d]is odd number"%(i,j))
 oddProduct(list)               
 oddProduct([1,3,5,4,3])
+
+
+#Better way of finding a distinct pair of numbers in the sequence
+#whose product is odd. both numbers are odd.
+
+def findOddProduct(list):
+    count = 0
+    for i in range(len(list)):
+        if list[i]&1 == 1:
+            count += 1
+            if count == 2:
+                return True
+    return False
+print(findOddProduct([1,3,5,4,3]))
