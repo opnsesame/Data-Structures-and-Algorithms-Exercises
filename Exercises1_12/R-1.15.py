@@ -10,3 +10,11 @@ def distinctNumbers(list):
                 print("list[%d] and list[%d]are same numbers"%(i,j))
 distinctNumbers(list)               
 distinctNumbers([1,3,5,4,3])
+
+def distinct(data):
+    for k in range(1,len(data)):
+        for j in range(k):
+            if data[k] == data [j]:
+                return False
+    return True
+print(distinct([1,3,5,4,3]))
