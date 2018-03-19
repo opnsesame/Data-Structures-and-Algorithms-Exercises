@@ -24,3 +24,14 @@ def myShuffle(list):
     return(mShuffle)
 list = myShuffle(list)
 print(list)
+
+#More user defined shuffle
+list = [chr(n) for n in range(97,123)]
+def myShuffle(list):
+    n = len(list)
+    for i in range(n):
+        a = random.randint(i,n-1)
+        list[i],list[a] = list[a],list[i]
+    return(list)
+list = myShuffle(list)
+print(list)
