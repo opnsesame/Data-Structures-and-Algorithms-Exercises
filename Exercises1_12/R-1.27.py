@@ -19,8 +19,8 @@ def factors(n):
         yield k
     for val in reversed(buf):
         yield val
-s = list(factors(n))
-print(s)
+#s = list(factors(n))
+#print(s)
 t = time.time() - tst
 print(t)
 
@@ -35,7 +35,7 @@ def factors(n):
     if k*k == n:
         yield k
 s = sorted(factors(n))
-print(s)
+#print(s)
 t = time.time() - tst
 print(t)
 
