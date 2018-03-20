@@ -4,7 +4,27 @@
 #it did not yield the factors in increasing order. Modify the generator so
 #that it reports factors in increasing order, while maintaining its general
 #performance advantages.
-n = 100
+import time
+n = 100000000000
+tst = time.time()
+def factors(n):
+    buf = []
+    k = 1
+    while k*k < n:
+        if n%k == 0:
+            yield k
+            buf.append(n//k)
+        k += 1
+    if k*k == n:
+        yield k
+    for val in reversed(buf):
+        yield val
+s = list(factors(n))
+print(s)
+t = time.time() - tst
+print(t)
+
+tst = time.time()
 def factors(n):
     k = 1
     while k*k < n:
@@ -14,6 +34,8 @@ def factors(n):
         k += 1
     if k*k == n:
         yield k
-f = sorted(factors(n))
-s = list(f)
+s = sorted(factors(n))
 print(s)
+t = time.time() - tst
+print(t)
+
