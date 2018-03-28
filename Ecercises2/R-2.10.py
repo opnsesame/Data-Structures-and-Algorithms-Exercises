@@ -6,5 +6,5 @@ are all the negated values of the respective coordinates of v.
 
 def __neg__(self):
 	for i in range(len(self)):
-		self.coords[i] = - self[i]
-	return self.coords
+		result[i] = - self[i]
+	return result
