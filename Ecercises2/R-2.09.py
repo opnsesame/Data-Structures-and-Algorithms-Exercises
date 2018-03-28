@@ -25,27 +25,25 @@ class Vector:
 
 	def __add__(self, other):
 		'''Return sum of two vectors.'''
-		result = Vector(len(self)) 
 		if len(self) != len(other): # relies on len method
 			raise ValueError('dimensions must agree')
-			result = Vector(len(self)) # start with vector of zero
+		result = Vector(len(self)) # start with vector of zero
 		for j in range(len(self)):
-			print('self[{}]+other[{}]='.format(j,j),self[j]+other[j])
+			#print('self[{}]+other[{}]='.format(j,j),self[j]+other[j])
 			result[j] = self[j] + other[j]
-		print('result=',result)
+			#print('result=',result)
 		return  result
-	
+	__radd__ = __add__	
 	'''sub method returns a new vector instance representing the
 		difference between two vectors'''
 	def __sub__ (self,other):
-		result = Vector(len(self)) 
 		if len(self) != len(other): # relies on len method
 			raise ValueError('dimensions must agree')
-			result = Vector(len(self)) # start with vector of zero
+		result = Vector(len(self)) # start with vector of zero
 		for j in range(len(self)):
-			print('self[{}]-other[{}]='.format(j,j),self[j]+other[j])
+			print('self[{}]-other[{}]='.format(j,j),self[j]-other[j])
 			result[j] = self[j] - other[j]
-		print('result=',result)
+		#print('result=',self.coords)
 		return  result
 		
 	def __eq__ (self, other):
@@ -57,23 +55,27 @@ class Vector:
 		return not self == other # rely on existing eq definition
 	
 	def __neg__(self):
+		result = Vector(len(self))
 		for i in range(len(self)):
-			self.coords[i] = - self[i]
-		return self.coords
+			result[i] = - self[i]
+		return result
 
 	def __str__ (self):
 		'''Produce string representation of vector.'''
 		return '<' + str(self. coords)[1:-1] + '>' # adapt list representation
-v1 =Vector(6)
-v2 =Vector(6)
+v1 =Vector(4)
+v2 =Vector(4)
 v1[0]=44
 v1[1]=10
 v2[1]=22
 v = v1+v2
-print(v1)
-print(v2)
-print(v)
+print('v1=:   ',v1)
+print('v2=:   ',v2)
+print('v=:    ',v)
 v = v1-v2
-print(v)
+print('v1-v2=  ',v)
 v1=-v1
-print(v1)
+print('-v1=:   ',v1)
+print('---------------------------------------------')
+v3 = v1+[2,3,4,5] 
+print(v3)
