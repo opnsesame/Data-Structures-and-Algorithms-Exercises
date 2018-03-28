@@ -59,22 +59,30 @@ class Vector:
 		for i in range(len(self)):
 			result[i] = - self[i]
 		return result
-
+	'''
 	def __mul__(self,n):
 		result = Vector(len(self))
 		for i in range(len(self)):
 			result[i] = self[i]*n
 		return result
-	__rmul__ = __mul__
+	'''
+
 	
 	def __mul__(self,other):
-		if len(self) != len(other):
-			raise ValueError('dimensions must agree')
-		result = Vector(len(self))
-		for i in range(len(self)):
-			result[i] = self[i]*other[i]
-		return result
-
+		if isinstance(other,Vector):
+			if len(self) != len(other):
+				raise ValueError('dimensions must agree')
+			result = Vector(len(self))
+			for i in range(len(self)):
+				result[i] = self[i]*other[i]
+			return result
+		else:
+			result = Vector(len(self))
+			for i in range(len(self)):
+				result[i] = self[i]*other
+			return result
+	__rmul__ = __mul__
+	
 	def __str__ (self):
 		'''Produce string representation of vector.'''
 		return '<' + str(self. coords)[1:-1] + '>' # adapt list representation
@@ -87,3 +95,5 @@ print('v1=:   ',v1)
 print('v2=:   ',v2)
 v3=v1*v2
 print(v3)
+v=v1*3
+print(v)
