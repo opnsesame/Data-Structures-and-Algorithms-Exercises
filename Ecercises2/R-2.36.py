@@ -13,7 +13,7 @@ fish dies (i.e., it disappears).
 import random
 import time
 START = 0
-RIVERSIZE = 50
+RIVERSIZE = 100
 
 class River():
     def __init__(self,river):
@@ -80,7 +80,7 @@ class River():
         if self.__bear__ == 1 and self.__fish__ == 0:
             print('There is only 1 bear in the river , unable to reproduce , Game Over, Exit 4')
             print(self.__str__())
-            exit()            
+            exit()
         #print('old poisition{};new poisition{}'.format(originalP,newP))
         #print(type(self.__river__[newP]),'---------',type(self.__river__[originalP]))
         #print('---------------------------------------------------------------')
@@ -136,7 +136,7 @@ class River():
         if  originalP < newP:
             if self.__river__[newP] == None:
                 self.__river__[newP],self.__river__[originalP] = self.__river__[originalP],self.__river__[newP]
-                print(self.__str__(),type(self.__river__[newP]),'{} Moved --------> to Right {}'.format(originalP,newP))                
+                print(self.__str__(),type(self.__river__[newP]),'{} Moved --------> to Right {}'.format(originalP,newP))
             if type(self.__river__[newP]) == type(self.__river__[originalP]):
                 l =[]
                 for i in range(len(self.__river__)):
